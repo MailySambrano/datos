@@ -1,0 +1,19 @@
+auth_enabled: false
+
+server:
+  http_listen_port: 3100
+
+clients:
+  - url: http://loki:3100/api/v1/push
+
+positions:
+  filename: /tmp/positions.yaml
+
+scrape_configs:
+  - job_name: 'docker-logs'
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: docker
+          __path__: /var/lib/docker/containers/*/*.log
