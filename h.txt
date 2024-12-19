@@ -1,0 +1,6 @@
+{
+  "log-driver": "loki",
+  "log-opts": {
+    "loki-url": "http://<IP_O_NOMBRE_DE_HOST>:3100/loki/api/v1/push"
+  }
+}
