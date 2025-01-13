@@ -42,10 +42,15 @@ container_last_seen{image!="",container_name!=""}
 F0113 14:56:34.932323       1 cadvisor.go:146] Failed to create a Container Manager: mountpoint for cpu not found
 
 
-docker run -d \
+docker run \
+  --rm \
+  --privileged \
+  -p 8080:8080 \
+  --volume /sys:/sys:ro \
+  --volume /proc:/proc:ro \
+  --volume /cgroup:/cgroup:ro \
   --name=cadvisor \
-  --volume=/var/run/docker.sock:/var/run/docker.sock \
-  --publish=8080:8080 \
   google/cadvisor:latest
+
 
 
