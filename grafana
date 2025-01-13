@@ -12,3 +12,12 @@ docker run -d \
 
 
  http://host.docker.internal:9090
+
+
+global:
+  scrape_interval: 15s
+
+scrape_configs:
+  - job_name: 'docker'
+    static_configs:
+      - targets: ['docker.for.mac.localhost:8080']  # O ajusta esta URL según tu entorno
