@@ -53,4 +53,9 @@ docker run \
   google/cadvisor:latest
 
 
+Digest: sha256:815386ebbe9a3490f38785ab11bda34ec8dacf4634af77b8912832d4f85dca04
+Status: Downloaded newer image for google/cadvisor:latest
+docker: Error response from daemon: failed to create task for container: failed to create shim task: OCI runtime create failed: runc create failed: unable to start container process: error during container init: unable to apply apparmor profile: apparmor failed to apply profile: open /proc/self/attr/apparmor/exec: read-only file system: unknown.
+
+
 
