@@ -1,3 +1,17 @@
+Requested session timeout to be 3600000ms, got 300000ms instead
+Traceback (most recent call last):
+  File "/app/LSF.py", line 141, in <module>
+    calculate_differences(node_ids)
+  File "/app/LSF.py", line 123, in calculate_differences
+    difference= numeric_value - value
+TypeError: unsupported operand type(s) for -: 'NoneType' and 'float'
+
+
+
+
+
+
+
 {
   "log-driver": "loki",
   "log-opts": {
