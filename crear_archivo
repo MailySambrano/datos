@@ -1,0 +1,8 @@
+'''import os
+
+# Crear el archivo hola.txt con el mensaje "hola docker"
+file_path = '/app/reportes/hola.txt'  # Esta ruta es dentro del contenedor
+with open(file_path, 'w') as f:
+    f.write("hola docker")
+
+print(f"El archivo {file_path} se ha creado correctamente.")'''
