@@ -1,20 +1,23 @@
+2025-01-23 20:56:01.475337: I tensorflow/tsl/cuda/cudart_stub.cc:28] Could not find cuda drivers on your machine, GPU will not be used.
+
+2025-01-23 20:56:01.539621: I tensorflow/tsl/cuda/cudart_stub.cc:28] Could not find cuda drivers on your machine, GPU will not be used.
+
+2025-01-23 20:56:01.540417: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+
+To enable the following instructions: AVX2 AVX512F FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+
+2025-01-23 20:56:02.783670: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+
 Requested session timeout to be 3600000ms, got 300000ms instead
+
 Traceback (most recent call last):
-  File "/app/LSF.py", line 141, in <module>
-    calculate_differences(node_ids)
-  File "/app/LSF.py", line 123, in calculate_differences
-    difference= numeric_value - value
-TypeError: unsupported operand type(s) for -: 'NoneType' and 'float'
 
+  File "/app/LSF.py", line 57, in <module>
 
+    calculate_differences(client, node_ids)
 
+  File "/app/calculate_differences.py", line 71, in calculate_differences
 
+    difference = abs(value - numeric_value)
 
-
-
-{
-  "log-driver": "loki",
-  "log-opts": {
-    "loki-url": "http://<IP_O_NOMBRE_DE_HOST>:3100/loki/api/v1/push"
-  }
-}
+TypeError: unsupported operand type(s) for -: 'float' and 'NoneType'
