@@ -1,26 +1,18 @@
-ns=1;s=t|E51_201_SRV01::K011/S11/G50/K11_BW1_FA_I2/FA_I2.A1: 9.268842697143555
-ns=1;s=t|E51_201_SRV01::K011/S10/G30/K11_RC1_JA/JA_I2.A1: 137.36744689941406
-ns=1;s=t|E51_201_SRV01::K011/S11/G50/K11_BW1_FA_RT2/RT2.C1: 0.4791666567325592
-ns=1;s=t|E51_201_SRV01::K011/S11/G50/K11_BW1_FB_I2/FB_I2.A1: 0.0
-ns=1;s=t|E51_201_SRV01::K011/S10/G30/K11_RC1_JB/JB_I2.A1: 0.0
-ns=1;s=t|E51_201_SRV01::K011/S11/G50/K11_BW1_FB_RT2/RT2.C1: 0.0
-ns=1;s=t|E51_201_SRV01::K011/S11/G50/K11_BW1_FC_I2/FC_I2.A1: 0.0
-ns=1;s=t|E51_201_SRV01::K011/S11/G50/K11_BW1_FC_RT2/RT2.C1: 0.0
-ns=1;s=t|E51_201_SRV01::K011/S11/G50/K11_BW1_FD_I2/FD_I2.A1: 0.0
-ns=1;s=t|E51_201_SRV01::K011/S10/G30/K11_RC1_JD/JD_I2.A1: 0.0
-ns=1;s=t|E51_201_SRV01::K011/S11/G50/K11_BW1_FD_RT2/RT2.C1: 0.0
-ns=1;s=t|E51_201_SRV01::K011/S11/G50/K11_BW1_FE_I2/FE_I2.A1: 569.4277954101562
-ns=1;s=t|E51_201_SRV01::K011/S10/G30/K11_RC1_JE/JE_I2.A1: 1020.4537353515625
-ns=1;s=t|E51_201_SRV01::K011/S11/G50/K11_BW1_FE_RT2/RT2.C1: 3.3080556392669678
-ns=1;s=t|E51_201_SRV01::K011/S11/G50/K11_BW1_FF_I2/FF_I2.A1: 1058.6729736328125
-ns=1;s=t|E51_201_SRV01::K011/S10/G30/K11_RC1_JF/JF_I2.A1: 1319.638427734375
-ns=1;s=t|E51_201_SRV01::K011/S11/G50/K11_BW1_FF_RT2/RT2.C1: 4.164444446563721
-ns=1;s=t|E51_201_SRV01::K011/S14/G51/K9A_BW1_FA_I2/FA_I2.A1: 0.0
-ns=1;s=t|E51_201_SRV01::K011/S14/G51/K9A_BW1_FB_I2/FB_I2.A1: 1446.917724609375
-ns=1;s=t|E51_201_SRV01::K011/S14/G51/K9A_BW1_FC_I2/FC_I2.A1: 3.6608619689941406
-ns=1;s=t|E51_201_SRV01::K011/S14/G51/K9A_BW1_FD_I2/FD_I2.A1: 428.0555725097656
-ns=1;s=t|E51_201_SRV01::K011/S14/G51/K9A_BW1_FE_I2/FE_I2.A1: 163.3250732421875
-ns=1;s=t|E51_201_SRV01::K011/S14/G51/K9A_BW1_FF_I2/FF_I2.A1: 630.0343627929688
+#!/bin/bash
 
+# Variables
+carpeta_origen="/ruta/a/tu/carpeta_origen"  # Ruta de la carpeta en Ubuntu
+carpeta_destino="/mnt/windows"  # Punto de montaje SMB en Ubuntu
+usuario="tu_usuario"  # Usuario de Windows
+contrasena="tu_contrasena"  # Contraseña de Windows
 
+# Montar la carpeta compartida de Windows (si no está montada)
+if ! mount | grep -q "$carpeta_destino"; then
+  sudo mount -t cifs //192.168.1.100/compartido "$carpeta_destino" -o username=$usuario,password=$contrasena
+fi
 
+# Copiar los archivos
+cp -r "$carpeta_origen"/* "$carpeta_destino"
+
+# Desmontar la carpeta compartida (opcional)
+sudo umount "$carpeta_destino"
