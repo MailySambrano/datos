@@ -1,0 +1,13 @@
+# Instalar paquetes necesarios
+RUN apt-get update && \
+    apt-get install -y \
+    tzdata \
+    ntpdate && \
+    rm -rf /var/lib/apt/lists/*
+
+# Configurar la zona horaria (por ejemplo, "America/Argentina/Buenos_Aires")
+RUN ln -fs /usr/share/zoneinfo/America/Argentina/Buenos_Aires /etc/localtime && \
+    dpkg-reconfigure -f noninteractive tzdata
+
+# Sincronizar con el servidor NTP
+RUN ntpdate 172.4.3.1
