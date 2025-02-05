@@ -1,18 +1,22 @@
 #!/bin/bash
 
-# Variables
-carpeta_origen="/ruta/a/tu/carpeta_origen"  # Ruta de la carpeta en Ubuntu
-carpeta_destino="/mnt/windows"  # Punto de montaje SMB en Ubuntu
-usuario="tu_usuario"  # Usuario de Windows
-contrasena="tu_contrasena"  # Contraseña de Windows
+# Directorio de origen en Ubuntu
+ORIGEN="/ruta/a/tus/archivos/"
 
-# Montar la carpeta compartida de Windows (si no está montada)
-if ! mount | grep -q "$carpeta_destino"; then
-  sudo mount -t cifs //192.168.1.100/compartido "$carpeta_destino" -o username=$usuario,password=$contrasena
-fi
+# Directorio de destino en Windows (reemplaza con la IP de tu máquina Windows y el nombre de la carpeta compartida)
+DESTINO="//IP_DE_WINDOWS/nombre_de_la_carpeta"
 
-# Copiar los archivos
-cp -r "$carpeta_origen"/* "$carpeta_destino"
+# Opcional: Usuario y contraseña si la carpeta de Windows lo requiere
+USER="tu_usuario"
+PASS="tu_contraseña"
 
-# Desmontar la carpeta compartida (opcional)
-sudo umount "$carpeta_destino"
+# Montar la carpeta compartida de Windows
+sudo mount -t cifs $DESTINO /mnt/compartida -o user=$USER,pass=$PASS
+
+# Copiar archivos usando rsync (esto asegura que solo se copien los archivos nuevos o modificados)
+rsync -av --progress $ORIGEN /mnt/compartida/
+
+# Desmontar la carpeta compartida de Windows
+sudo umount /mnt/compartida
+
+	•	Asegúrate de reemplazar /r
