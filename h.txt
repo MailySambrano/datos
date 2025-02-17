@@ -1,22 +1,15 @@
 #!/bin/bash
 
-# Directorio de origen en Ubuntu
-ORIGEN="/ruta/a/tus/archivos/"
+# Directorio de origen
+source_dir="$HOME/Escritorio/tu_carpeta"
 
-# Directorio de destino en Windows (reemplaza con la IP de tu máquina Windows y el nombre de la carpeta compartida)
-DESTINO="//IP_DE_WINDOWS/nombre_de_la_carpeta"
+# Directorio de destino en red
+dest_dir="/ruta/a/tu/carpeta/en/red"
 
-# Opcional: Usuario y contraseña si la carpeta de Windows lo requiere
-USER="tu_usuario"
-PASS="tu_contraseña"
+# Copiar archivos nuevos creados en las últimas 24 horas
+find "$source_dir" -type f -mtime -1 -exec cp {} "$dest_dir" \;
 
-# Montar la carpeta compartida de Windows
-sudo mount -t cifs $DESTINO /mnt/compartida -o user=$USER,pass=$PASS
 
-# Copiar archivos usando rsync (esto asegura que solo se copien los archivos nuevos o modificados)
-rsync -av --progress $ORIGEN /mnt/compartida/
 
-# Desmontar la carpeta compartida de Windows
-sudo umount /mnt/compartida
-
-	•	Asegúrate de reemplazar /r
+chmod +x /ruta/a/copiar_archivos.sh
+0 0 * * * /ruta/a/copiar_archivos.sh
