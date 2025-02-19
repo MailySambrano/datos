@@ -1,3 +1,26 @@
+
+#!/bin/bash
+
+# Variables de la red
+DIRECTORIO_RED="//servidor/direccion"
+PUNTO_MONTAJE="/mnt/carpeta_red"
+
+# Montar la carpeta de red usando el archivo de credenciales
+sudo mount -t cifs $DIRECTORIO_RED $PUNTO_MONTAJE -o credentials=/etc/samba/credenciales.txt,vers=3.0
+
+# Copiar archivos
+cp /ruta/a/los/archivos/* $PUNTO_MONTAJE/
+
+# Desmontar la carpeta después de copiar
+sudo umount $PUNTO_MONTAJE
+
+
+
+
+
+
+
+
 #!/bin/bash
 
 # Directorio de origen
