@@ -10,3 +10,26 @@ Updating certificates in /etc/ssl/certs...
 Running hooks in /etc/ca-certificates/update.d...
 done.
 adminis
+
+
+ curl -v https://mcr.microsoft.com
+* Host mcr.microsoft.com:443 was resolved.
+* IPv6: 2603:1061:f:100::10, 2603:1061:f:101::10
+* IPv4: 150.171.69.10, 150.171.70.10
+*   Trying 150.171.69.10:443...
+* Connected to mcr.microsoft.com (150.171.69.10) port 443
+* ALPN: curl offers h2,http/1.1
+* TLSv1.3 (OUT), TLS handshake, Client hello (1):
+*  CAfile: /etc/ssl/certs/ca-certificates.crt
+*  CApath: /etc/ssl/certs
+* TLSv1.3 (IN), TLS handshake, Server hello (2):
+* TLSv1.2 (IN), TLS handshake, Certificate (11):
+* TLSv1.2 (OUT), TLS alert, unknown CA (560):
+* SSL certificate problem: self-signed certificate in certificate chain
+* Closing connection
+curl: (60) SSL certificate problem: self-signed certificate in certificate chain
+More details here: https://curl.se/docs/sslcerts.html
+
+curl failed to verify the legitimacy of the server and therefore could not
+establish a secure connection to it. To learn more about this situation and
+how to fix it, please visit the web page mentioned above.
