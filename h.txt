@@ -1,3 +1,12 @@
  docker pull mcr.microsoft.com/mssql/server
 Using default tag: latest
 Error response from daemon: Get "https://mcr.microsoft.com/v2/": tls: failed to verify certificate: x509: certificate signed by unknown authority
+
+
+sudo update-ca-certificates
+[sudo] contraseña para administrador: 
+Updating certificates in /etc/ssl/certs...
+0 added, 0 removed; done.
+Running hooks in /etc/ca-certificates/update.d...
+done.
+adminis
