@@ -1,3 +1,8 @@
+openssl x509 -inform der -in cert_cert-gpt.der -out cert_cert-gpt.pem
+sudo cp cert_cert-gpt.pem /usr/local/share/ca-certificates/
+sudo update-ca-certificates
+sudo ls /etc/ssl/certs | grep cert_cert-gpt.pem
+
 sudo cp /path/to/downloaded/certificate.crt /usr/local/share/ca-certificates/
 sudo update-ca-certificates
 
