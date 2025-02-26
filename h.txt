@@ -1,3 +1,6 @@
+docker run -e 'ACCEPT_EULA=Y' -e 'MSSQL_SA_PASSWORD=TuContraseñaSegura123' -p 1433:1433 --name sql_server_container -d mcr.microsoft.com/mssql/server
+
+
 openssl x509 -inform der -in cert_cert-gpt.der -out cert_cert-gpt.pem
 sudo cp cert_cert-gpt.pem /usr/local/share/ca-certificates/
 sudo update-ca-certificates
