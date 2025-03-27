@@ -1,8 +1,10 @@
-docker run -e 'ACCEPT_EULA=Y' -e 'MSSQL_SA_PASSWORD=P@ssw0rd' -p 1433:1433 --name sql_server -v /home/administrador/Escritorio/BD_datosIA:var/opt/mssql -d mcr.microsoft.com/mssql/server
-docker: Error response from daemon: invalid volume specification: '/home/administrador/Escritorio/BD_datosIA:var/opt/mssql': invalid mount config for type "bind": invalid mount path: 'var/opt/mssql' mount path must be absolute.
-See 'docker run --help'.
+SQL Server 2022 will run as non-root by default.
 
+This container is running as user mssql.
 
+To learn more visit https://go.microsoft.com/fwlink/?linkid=2099216.
+
+/opt/mssql/bin/sqlservr: Error: The system directory [/.system] could not be created. File: LinuxDirectory.cpp:420 [Status: 0xC0000022 Access Denied errno = 0xD(13) Permission denied]
 
 from opcua import Client
 from datetime import datetime, timedelta
