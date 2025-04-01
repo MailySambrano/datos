@@ -1,42 +1,41 @@
-SQL Server 2022 will run as non-root by default.
+2025-04-01 13:47:41,586 INFO [Cleanup Archive for default] o.a.n.c.repository.FileSystemRepository Archive cleanup completed for container default; will now allow writing to this container. Bytes used = 213.61 GB, bytes free = 31.41 GB, capacity = 245.02 GB
 
-This container is running as user mssql.
+2025-04-01 13:47:48,358 INFO [Checkpoint FlowFile Repository] o.a.n.c.r.WriteAheadFlowFileRepository Initiating checkpoint of FlowFile Repository
 
-To learn more visit https://go.microsoft.com/fwlink/?linkid=2099216.
+2025-04-01 13:47:48,358 INFO [Checkpoint FlowFile Repository] o.a.n.c.r.WriteAheadFlowFileRepository Successfully checkpointed FlowFile Repository with 0 records in 0 milliseconds
 
-/opt/mssql/bin/sqlservr: Error: The system directory [/.system] could not be created. File: LinuxDirectory.cpp:420 [Status: 0xC0000022 Access Denied errno = 0xD(13) Permission denied]
+2025-04-01 13:48:08,359 INFO [Checkpoint FlowFile Repository] o.a.n.c.r.WriteAheadFlowFileRepository Initiating checkpoint of FlowFile Repository
 
-from opcua import Client
-from datetime import datetime, timedelta
+2025-04-01 13:48:08,359 INFO [Checkpoint FlowFile Repository] o.a.n.c.r.WriteAheadFlowFileRepository Successfully checkpointed FlowFile Repository with 0 records in 0 milliseconds
 
-def obtener_datos_historicos(opc_url, nodos):
-    # Conectar al servidor OPC UA
-    client = Client(opc_url)
-    try:
-        client.connect()
-        print("Conectado al servidor OPC UA")
+2025-04-01 13:48:28,359 INFO [Checkpoint FlowFile Repository] o.a.n.c.r.WriteAheadFlowFileRepository Initiating checkpoint of FlowFile Repository
 
-        # Fecha de ayer a las 23:57:00
-        fecha_fin = datetime.now().replace(hour=23, minute=57, second=0) - timedelta(days=1)
-        fecha_inicio = fecha_fin - timedelta(minutes=10)  # Por ejemplo, tomar datos de los últimos 10 minutos
+2025-04-01 13:48:28,360 INFO [Checkpoint FlowFile Repository] o.a.n.c.r.WriteAheadFlowFileRepository Successfully checkpointed FlowFile Repository with 0 records in 0 milliseconds
 
-        datos = {}
-        for nodo_id in nodos:
-            nodo = client.get_node(nodo_id)
-            historico = nodo.read_raw_history(fecha_inicio, fecha_fin)
-            datos[nodo_id] = [(d.SourceTimestamp, d.Value) for d in historico]
-        
-        return datos
+2025-04-01 13:48:41,625 INFO [Cleanup Archive for default] o.a.n.c.repository.FileSystemRepository Successfully deleted 0 files (0 bytes) from archive
 
-    except Exception as e:
-        print(f"Error: {e}")
-    finally:
-        client.disconnect()
+2025-04-01 13:48:41,625 INFO [Cleanup Archive for default] o.a.n.c.repository.FileSystemRepository Archive cleanup completed for container default; will now allow writing to this container. Bytes used = 213.61 GB, bytes free = 31.41 GB, capacity = 245.02 GB
 
-# Configuración
-opc_url = "opc.tcp://localhost:4840"  # Cambiar por la URL de tu servidor OPC UA
-nodos = ["ns=2;s=Variable1", "ns=2;s=Variable2"]  # Lista de nodos a consultar
+2025-04-01 13:48:48,361 INFO [Checkpoint FlowFile Repository] o.a.n.c.r.WriteAheadFlowFileRepository Initiating checkpoint of FlowFile Repository
 
-# Obtener datos históricos
-datos_historicos = obtener_datos_historicos(opc_url, nodos)
-print(datos_historicos)
+2025-04-01 13:48:48,361 INFO [Checkpoint FlowFile Repository] o.a.n.c.r.WriteAheadFlowFileRepository Successfully checkpointed FlowFile Repository with 0 records in 0 milliseconds
+
+2025-04-01 13:49:08,362 INFO [Checkpoint FlowFile Repository] o.a.n.c.r.WriteAheadFlowFileRepository Initiating checkpoint of FlowFile Repository
+
+2025-04-01 13:49:08,362 INFO [Checkpoint FlowFile Repository] o.a.n.c.r.WriteAheadFlowFileRepository Successfully checkpointed FlowFile Repository with 0 records in 0 milliseconds
+
+2025-04-01 13:49:28,362 INFO [Checkpoint FlowFile Repository] o.a.n.c.r.WriteAheadFlowFileRepository Initiating checkpoint of FlowFile Repository
+
+2025-04-01 13:49:28,363 INFO [Checkpoint FlowFile Repository] o.a.n.c.r.WriteAheadFlowFileRepository Successfully checkpointed FlowFile Repository with 0 records in 0 milliseconds
+
+2025-04-01 13:49:41,664 INFO [Cleanup Archive for default] o.a.n.c.repository.FileSystemRepository Successfully deleted 0 files (0 bytes) from archive
+
+2025-04-01 13:49:41,664 INFO [Cleanup Archive for default] o.a.n.c.repository.FileSystemRepository Archive cleanup completed for container default; will now allow writing to this container. Bytes used = 213.61 GB, bytes free = 31.41 GB, capacity = 245.02 GB
+
+2025-04-01 13:49:48,363 INFO [Checkpoint FlowFile Repository] o.a.n.c.r.WriteAheadFlowFileRepository Initiating checkpoint of FlowFile Repository
+
+2025-04-01 13:49:48,364 INFO [Checkpoint FlowFile Repository] o.a.n.c.r.WriteAheadFlowFileRepository Successfully checkpointed FlowFile Repository with 0 records in 0 milliseconds
+
+2025-04-01 13:50:08,364 INFO [Checkpoint FlowFile Repository] o.a.n.c.r.WriteAheadFlowFileRepository Initiating checkpoint of FlowFile Repository
+
+2025-04-01 13:50:08,365 INFO [Checkpoint FlowFile Repository] o.a.n.c.r.WriteAheadFlowFileRepository Successfully checkpointed FlowFile Repository with 0 records in 0 milliseconds
