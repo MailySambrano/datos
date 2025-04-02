@@ -1,7 +1,7 @@
 Traceback (most recent call last):
 
-  File "/app/ETL.py", line 18, in <module>
+  File "/app/ETL.py", line 29, in <module>
 
-    conn = pyodbc.connect('DRIVER={ODBC Driver 17 for SQL Server};'
+    cursor.execute("INSERT INTO TB_Lsf (Fecha, Valor) VALUES (?, ?)", row['Fecha'], row['Valor'])
 
-pyodbc.Error: ('01000', "[01000] [unixODBC][Driver Manager]Can't open lib 'ODBC Driver 17 for SQL Server' : file not found (0) (SQLDriverConnect)")
+pyodbc.DataError: ('22007', '[22007] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Conversion failed when converting date and/or time from character string. (241) (SQLExecDirectW)')
