@@ -1,7 +1,7 @@
 Traceback (most recent call last):
 
-  File "/app/ETL.py", line 20, in <module>
+  File "/app/ETL.py", line 18, in <module>
 
-    'UID=' + sa + ';'
+    conn = pyodbc.connect('DRIVER={ODBC Driver 17 for SQL Server};'
 
-NameError: name 'sa' is not defined
+pyodbc.Error: ('01000', "[01000] [unixODBC][Driver Manager]Can't open lib 'ODBC Driver 17 for SQL Server' : file not found (0) (SQLDriverConnect)")
