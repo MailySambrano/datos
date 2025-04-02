@@ -1,41 +1,43 @@
-2025-04-01 13:47:41,586 INFO [Cleanup Archive for default] o.a.n.c.repository.FileSystemRepository Archive cleanup completed for container default; will now allow writing to this container. Bytes used = 213.61 GB, bytes free = 31.41 GB, capacity = 245.02 GB
+Traceback (most recent call last):
 
-2025-04-01 13:47:48,358 INFO [Checkpoint FlowFile Repository] o.a.n.c.r.WriteAheadFlowFileRepository Initiating checkpoint of FlowFile Repository
+  File "/usr/local/lib/python3.9/site-packages/pandas/compat/_optional.py", line 135, in import_optional_dependency
 
-2025-04-01 13:47:48,358 INFO [Checkpoint FlowFile Repository] o.a.n.c.r.WriteAheadFlowFileRepository Successfully checkpointed FlowFile Repository with 0 records in 0 milliseconds
+    module = importlib.import_module(name)
 
-2025-04-01 13:48:08,359 INFO [Checkpoint FlowFile Repository] o.a.n.c.r.WriteAheadFlowFileRepository Initiating checkpoint of FlowFile Repository
+  File "/usr/local/lib/python3.9/importlib/__init__.py", line 127, in import_module
 
-2025-04-01 13:48:08,359 INFO [Checkpoint FlowFile Repository] o.a.n.c.r.WriteAheadFlowFileRepository Successfully checkpointed FlowFile Repository with 0 records in 0 milliseconds
+    return _bootstrap._gcd_import(name[level:], package, level)
 
-2025-04-01 13:48:28,359 INFO [Checkpoint FlowFile Repository] o.a.n.c.r.WriteAheadFlowFileRepository Initiating checkpoint of FlowFile Repository
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
 
-2025-04-01 13:48:28,360 INFO [Checkpoint FlowFile Repository] o.a.n.c.r.WriteAheadFlowFileRepository Successfully checkpointed FlowFile Repository with 0 records in 0 milliseconds
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
 
-2025-04-01 13:48:41,625 INFO [Cleanup Archive for default] o.a.n.c.repository.FileSystemRepository Successfully deleted 0 files (0 bytes) from archive
+  File "<frozen importlib._bootstrap>", line 984, in _find_and_load_unlocked
 
-2025-04-01 13:48:41,625 INFO [Cleanup Archive for default] o.a.n.c.repository.FileSystemRepository Archive cleanup completed for container default; will now allow writing to this container. Bytes used = 213.61 GB, bytes free = 31.41 GB, capacity = 245.02 GB
+ModuleNotFoundError: No module named 'openpyxl'
 
-2025-04-01 13:48:48,361 INFO [Checkpoint FlowFile Repository] o.a.n.c.r.WriteAheadFlowFileRepository Initiating checkpoint of FlowFile Repository
+During handling of the above exception, another exception occurred:
 
-2025-04-01 13:48:48,361 INFO [Checkpoint FlowFile Repository] o.a.n.c.r.WriteAheadFlowFileRepository Successfully checkpointed FlowFile Repository with 0 records in 0 milliseconds
+Traceback (most recent call last):
 
-2025-04-01 13:49:08,362 INFO [Checkpoint FlowFile Repository] o.a.n.c.r.WriteAheadFlowFileRepository Initiating checkpoint of FlowFile Repository
+  File "/app/ETL.py", line 5, in <module>
 
-2025-04-01 13:49:08,362 INFO [Checkpoint FlowFile Repository] o.a.n.c.r.WriteAheadFlowFileRepository Successfully checkpointed FlowFile Repository with 0 records in 0 milliseconds
+    df = pd.read_excel(input_file, sheet_name='Base de Datos')
 
-2025-04-01 13:49:28,362 INFO [Checkpoint FlowFile Repository] o.a.n.c.r.WriteAheadFlowFileRepository Initiating checkpoint of FlowFile Repository
+  File "/usr/local/lib/python3.9/site-packages/pandas/io/excel/_base.py", line 495, in read_excel
 
-2025-04-01 13:49:28,363 INFO [Checkpoint FlowFile Repository] o.a.n.c.r.WriteAheadFlowFileRepository Successfully checkpointed FlowFile Repository with 0 records in 0 milliseconds
+    io = ExcelFile(
 
-2025-04-01 13:49:41,664 INFO [Cleanup Archive for default] o.a.n.c.repository.FileSystemRepository Successfully deleted 0 files (0 bytes) from archive
+  File "/usr/local/lib/python3.9/site-packages/pandas/io/excel/_base.py", line 1567, in __init__
 
-2025-04-01 13:49:41,664 INFO [Cleanup Archive for default] o.a.n.c.repository.FileSystemRepository Archive cleanup completed for container default; will now allow writing to this container. Bytes used = 213.61 GB, bytes free = 31.41 GB, capacity = 245.02 GB
+    self._reader = self._engines[engine](
 
-2025-04-01 13:49:48,363 INFO [Checkpoint FlowFile Repository] o.a.n.c.r.WriteAheadFlowFileRepository Initiating checkpoint of FlowFile Repository
+  File "/usr/local/lib/python3.9/site-packages/pandas/io/excel/_openpyxl.py", line 552, in __init__
 
-2025-04-01 13:49:48,364 INFO [Checkpoint FlowFile Repository] o.a.n.c.r.WriteAheadFlowFileRepository Successfully checkpointed FlowFile Repository with 0 records in 0 milliseconds
+    import_optional_dependency("openpyxl")
 
-2025-04-01 13:50:08,364 INFO [Checkpoint FlowFile Repository] o.a.n.c.r.WriteAheadFlowFileRepository Initiating checkpoint of FlowFile Repository
+  File "/usr/local/lib/python3.9/site-packages/pandas/compat/_optional.py", line 138, in import_optional_dependency
 
-2025-04-01 13:50:08,365 INFO [Checkpoint FlowFile Repository] o.a.n.c.r.WriteAheadFlowFileRepository Successfully checkpointed FlowFile Repository with 0 records in 0 milliseconds
+    raise ImportError(msg)
+
+ImportError: Missing optional dependency 'openpyxl'.  Use pip or conda to install openpyxl.
